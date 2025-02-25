@@ -40,7 +40,8 @@ let x = localStorage.getItem("highScore");
 
 // Be careful: if nothing is stored (say, it's the user's first time on the web page), x will be null.
 
-// Only a string can be stored or retrieved. For simple things such as numbers, this is easy to do. If you need to store a more complex object (you probably don't), use the methods JSON.Stringify and JSON.Parse
+// Only a string can be stored or retrieved. For simple things such as numbers, this is easy to convert.
+// If you need to store a more complex object (you probably don't), use the methods JSON.Stringify and JSON.Parse
 
 // e.g.
 
