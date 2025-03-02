@@ -1,0 +1,46 @@
+body {
+  --letter-gap: 40px;
+  --letter-size: calc(1ch + var(--letter-gap));
+
+  font-family: monospace;
+  font-size: 80px;
+  letter-spacing: var(--letter-gap);
+  text-transform: uppercase;
+}
+
+input {
+  display: inline-block;
+  height: 100px;
+  width: calc(var(--count, 5) * var(--letter-size));
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+#input-container {
+  position: relative;
+}
+
+#input-container::before {
+  content: var(--underline);
+  opacity: 0.75;
+  bottom: -0.5rem;
+  position: absolute;
+  z-index: -1;
+}
+
+#word > span {
+  display: inline-block;
+  width: var(--letter-size);
+  transform-origin: center;
+  transform: rotate(calc(15deg * sin(var(--random) * 100)))
+    translateY(calc(1em * (var(--random) - 0.5)));
+}
