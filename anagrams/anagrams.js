@@ -44,7 +44,7 @@ const main = () => {
     for (let i = 0; i < scrambledWord.length; i++) {
       const letter = scrambledWord[i];
       let child = document.createElement("span");
-      let biasedRandom = Math.random() / 2 + i % 2 * 0.5;
+      let biasedRandom = 0.5 * (Math.random() + i % 2);
       child.style.setProperty("--random", biasedRandom)
       child.innerText = letter;
       wordDisplay.appendChild(child);
