@@ -62,3 +62,16 @@ main {
   width: max-content;
   margin-inline: auto;
 }
+
+.button {
+  border: 3px solid currentColor;
+  border-radius: 1rem;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: white;
+}
+
+.button:hover {
+  background-color: grey;
+} 
