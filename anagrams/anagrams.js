@@ -1,5 +1,6 @@
 const main = () => {
-
+  // Variable Declaration
+  let lives = 5;
   const words = [
     "banana",
     "apple",
@@ -16,9 +17,12 @@ const main = () => {
     }
   }
 
+  // DOM Queries
   const wordDisplay = document.getElementById("word");
   const input = document.getElementById("input");
+  const liveDisplay = document.getElementById("lives");
 
+  // Check for errors
   if (wordDisplay == null) {
     console.error("Could not find element with id 'word'");
     return;
@@ -29,7 +33,16 @@ const main = () => {
     return;
   }
 
+  if (liveDisplay === null) {
+    console.error("Could not find element with id 'lives'");
+    return;
+  }
+
+  liveDisplay.setAttribute("lives", lives);
+
+  // Executed once per word
   const setWord = (index) => {
+    // All words in list done
     if (index > words.length - 1) {
       return;
     }
@@ -71,11 +84,18 @@ const main = () => {
 
   setWord(i);
 
-  input.addEventListener("change", event => {
+  input.addEventListener("change", _event => {
     const userInput = input.value.toLowerCase();
     console.log(userInput);
     if (userInput == words[i]) {
+      // user guessed word, move to next word
       setWord(++i);
+    } else {
+      // user guessed wrong, subtract 1 from lives
+      liveDisplay.setAttribute("lives", --lives);
+      if (lives <= 0) {
+        //game is over
+      }
     }
   })
 }

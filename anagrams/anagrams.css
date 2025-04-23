@@ -1,7 +1,23 @@
-body {
+header a {
+  color: currentColor;
+}
+
+#lives::after {
+  content: attr(lives)
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: monospace;
+  margin-bottom: 2em;
+}
+
+main {
   --letter-gap: 40px;
   --letter-size: calc(1ch + var(--letter-gap));
-
+  
   font-family: monospace;
   font-size: 80px;
   letter-spacing: var(--letter-gap);
