@@ -21,20 +21,28 @@ const main = () => {
   const wordDisplay = document.getElementById("word");
   const input = document.getElementById("input");
   const liveDisplay = document.getElementById("lives");
+  const victoryScreen = document.getElementById("victory");
+  const defeatScreen = document.getElementById("defeat");
 
   // Check for errors
-  if (wordDisplay == null) {
+  if (wordDisplay === null) {
     console.error("Could not find element with id 'word'");
     return;
   }
-
-  if (input == null) {
+  if (input === null) {
     console.error("Could not find element with id 'input'");
     return;
   }
-
   if (liveDisplay === null) {
     console.error("Could not find element with id 'lives'");
+    return;
+  }
+  if (victoryScreen === null) {
+    console.error("Could not find element with id 'victory'");
+    return;
+  }
+  if (defeatScreen === null) {
+    console.error("Could not find element with id 'defeat'");
     return;
   }
 
@@ -42,8 +50,8 @@ const main = () => {
 
   // Executed once per word
   const setWord = (index) => {
-    // All words in list done
     if (index > words.length - 1) {
+      victoryScreen.setAttribute("active", "")
       return;
     }
 
@@ -94,7 +102,7 @@ const main = () => {
       // user guessed wrong, subtract 1 from lives
       liveDisplay.setAttribute("lives", --lives);
       if (lives <= 0) {
-        //game is over
+        defeatScreen.setAttribute("active", "")
       }
     }
   })

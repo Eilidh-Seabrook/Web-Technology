@@ -51,8 +51,12 @@ button {
 
 /* Global Styles */
 
+:root {
+  --bg-color: #010123;
+}
+
 body {
-  background-color: #010123;
+  background-color: var(--bg-color);
   color: white;
   font-family: sans-serif;
 }
