@@ -50,7 +50,7 @@ const WORDS = [
     guessedLetters.add(letter);
     buttonEl.disabled = true;
   
-    if (secretWord.includes(letter)) {
+    if (!secretWord.includes(letter)) {
       remaining--;
       renderHearts();
     } 
