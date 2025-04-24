@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Hangman</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- top navigation bar -->
+  <header class="topbar">
+    <button class="icon menu"  aria-label="menu"></button>
+    <button class="icon user"  aria-label="profile"></button>
+    <button class="icon fav"   aria-label="favourites"></button>
+
+    <!-- hearts for lives -->
+    <div id="lives" class="lives"></div>
+  </header>
+
+  <main class="game">
+    <h2 id="level-heading" class="level">LEVEL 1</h2>
+
+    <!-- gallows + stick figure built with CSS -->
+    <figure class="gallows">
+      <div class="pole"></div>
+      <div class="beam"></div>
+      <div class="rope"></div>
+      <div id="man" class="man">
+        <span class="head"></span>
+        <span class="body"></span>
+        <span class="arm left"></span>
+        <span class="arm right"></span>
+        <span class="leg left"></span>
+        <span class="leg right"></span>
+      </div>
+    </figure>
+
+    <!-- word display -->
+    <div id="word" class="word"></div>
+
+    <!-- on‑screen keyboard -->
+    <section id="keyboard" class="keyboard"></section>
+
+    <!-- status + reset -->
+    <p id="status" class="status"></p>
+    <button id="reset" class="reset">New Game</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
