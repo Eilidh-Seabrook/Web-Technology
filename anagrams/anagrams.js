@@ -1,13 +1,6 @@
 const main = () => {
   // Variable Declaration
   let lives = 5;
-  const words = [
-    "banana",
-    "apple",
-    "tomato",
-    "orange",
-    "clementine"
-  ]
 
   // Implementation of the Fisher–Yates shuffle algorithm
   const shuffleArray = array => {
