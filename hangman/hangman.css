@@ -246,3 +246,11 @@ body {
   pointer-events: auto;
   visibility: visible;
 }
+
+.man * {
+  opacity: 0;
+}
+
+.man *[shown] {
+  opacity: 1;
+}

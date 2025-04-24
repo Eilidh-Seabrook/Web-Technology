@@ -1,4 +1,4 @@
-const MAX_GUESSES = 5;
+const MAX_GUESSES = 6;
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 // const WORDS_MEDIUM = ["hello", "coffee", "kitten", "house"];
 // const WORDS_HARD = ["liberal", "dinosaur", "encyclopaedia"];
@@ -10,6 +10,8 @@ const keyboardDiv = document.getElementById("keyboard");
 const statusP = document.getElementById("status");
 const victoryScreen = document.getElementById("victory");
 const defeatScreen = document.getElementById("defeat");
+const man = document.getElementById("man");
+const bodyParts = [...man.children];
 
 ALPHABET.split("").forEach((letter) => {
   const btn = document.createElement("button");
@@ -34,6 +36,7 @@ function handleGuess(letter, buttonEl) {
   buttonEl.disabled = true;
 
   if (!secretWord.includes(letter)) {
+    bodyParts[MAX_GUESSES - remaining].setAttribute("shown", "")
     remaining--;
   }
 
