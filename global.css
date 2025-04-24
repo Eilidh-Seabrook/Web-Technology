@@ -87,4 +87,33 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 100px;
+  font-family: monospace;
+  margin-top: 100px;
+}
+
+.three-columns * {
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+}
+
+.red {
+  color: black;
+  background-color: hsl(359, 97%, 66%);
+  border-radius: 500px;
+  border: 0px;
+  box-shadow: 8px 5px 6px #1f1347;
+  font-family: inherit;
+}
+
+.red:hover {
+  background-color: hsl(359, 60%, 50%);;
+}
+
+.three-columns h2 {
+  background-color: white;
+  color: black;
+  border-radius: 500px;
+  padding: 20px;
+  text-transform: uppercase;
 }
