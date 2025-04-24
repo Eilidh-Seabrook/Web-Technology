@@ -5,71 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arcade Hangman</title>
     <link rel="stylesheet" href="../global.css" />
-    <link rel="stylesheet" href="hangman.css"
+    <link rel="stylesheet" href="hangman.css" />
   </head>
   <body>
     <header class="topbar">
       <button class="icon menu" aria-label="menu"></button>
       <button class="icon user" aria-label="profile"></button>
       <button class="icon fav" aria-label="favourites"></button>
-
-      <div id="lives">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48px"
-          viewBox="0 -960 960 960"
-          width="48px"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M479-121q-17 0-33-5.5T417-145l-52-49Q241-307 150-414T59-642q0-99 66-166.5T289-876q50 0 99 22t91 74q47-52 93-74t97-22q99 0 166 67.5T902-642q0 121-93 228.5T594-193l-52 48q-13 13-29.5 18.5T479-121Z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48px"
-          viewBox="0 -960 960 960"
-          width="48px"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M479-121q-17 0-33-5.5T417-145l-52-49Q241-307 150-414T59-642q0-99 66-166.5T289-876q50 0 99 22t91 74q47-52 93-74t97-22q99 0 166 67.5T902-642q0 121-93 228.5T594-193l-52 48q-13 13-29.5 18.5T479-121Z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48px"
-          viewBox="0 -960 960 960"
-          width="48px"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M479-121q-17 0-33-5.5T417-145l-52-49Q241-307 150-414T59-642q0-99 66-166.5T289-876q50 0 99 22t91 74q47-52 93-74t97-22q99 0 166 67.5T902-642q0 121-93 228.5T594-193l-52 48q-13 13-29.5 18.5T479-121Z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48px"
-          viewBox="0 -960 960 960"
-          width="48px"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M479-121q-17 0-33-5.5T417-145l-52-49Q241-307 150-414T59-642q0-99 66-166.5T289-876q50 0 99 22t91 74q47-52 93-74t97-22q99 0 166 67.5T902-642q0 121-93 228.5T594-193l-52 48q-13 13-29.5 18.5T479-121Z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48px"
-          viewBox="0 -960 960 960"
-          width="48px"
-          fill="#FFFFFF"
-        >
-          <path
-            d="M479-121q-17 0-33-5.5T417-145l-52-49Q241-307 150-414T59-642q0-99 66-166.5T289-876q50 0 99 22t91 74q47-52 93-74t97-22q99 0 166 67.5T902-642q0 121-93 228.5T594-193l-52 48q-13 13-29.5 18.5T479-121Z"
-          />
-        </svg>
-      </div>
     </header>
 
     <main class="game">
@@ -88,18 +30,34 @@
           <span class="leg right"></span>
         </div>
       </figure>
-  
-      
+
       <div id="word" class="word"></div>
 
-      
       <section id="keyboard" class="keyboard"></section>
 
-      
       <p id="status" class="status"></p>
-      <button id="reset" class="reset">New Game</button>
     </main>
-
+    <section id="victory">
+      <div>
+        <h1>YOU WON!</h1>
+        <div>
+          <a href="../index.html" class="button">Return Home</a>
+          <a href="./medium.html" class="button">Advance to Next Difficulty</a>
+        </div>
+      </div>
+    </section>
+    <section id="defeat">
+      <div>
+        <h1>Better Luck Next Time!</h1>
+        <div>
+          <a href="../index.html" class="button">Return Home</a>
+          <a href="./easy.html" class="button">Try Again</a>
+        </div>
+      </div>
+    </section>
+    <script>
+      const WORDS = ["deer", "door"];
+    </script>
     <script src="hangman.js"></script>
   </body>
 </html>
