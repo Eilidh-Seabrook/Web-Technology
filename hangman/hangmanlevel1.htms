@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-level="1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman – Level 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon menu" href="level1.html" aria-label="restart"></a>
+    <h1 class="level">LEVEL 1</h1>
+    <div id="lives" class="lives"></div>
+  </header>
+
+  <main class="game">
+    <figure class="gallows">
+      <div class="pole"></div><div class="beam"></div><div class="rope"></div>
+      <div id="man" class="man">
+        <span class="head"></span><span class="body"></span>
+        <span class="arm left"></span><span class="arm right"></span>
+        <span class="leg left"></span><span class="leg right"></span>
+      </div>
+    </figure>
+
+    <div id="word" class="word"></div>
+    <section id="keyboard" class="keyboard"></section>
+    <p id="status" class="status"></p>
+    <button id="reset" class="reset">New Game</button>
+    <p><a href="level2.html">→ Go to Level 2</a></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
