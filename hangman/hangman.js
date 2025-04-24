@@ -53,7 +53,7 @@ const WORDS = [
     if (!secretWord.includes(letter)) {
       remaining--;
       renderHearts();
-    }
+    } 
   
     updateWord();
     updateStatus();
