@@ -16,6 +16,7 @@ const main = () => {
     const liveDisplay = document.getElementById("lives");
     const victoryScreen = document.getElementById("victory");
     const defeatScreen = document.getElementById("defeat");
+    const helpScreen = document.getElementById("help");
   
     // Check for errors
     if (wordDisplay === null) {
@@ -38,7 +39,12 @@ const main = () => {
       console.error("Could not find element with id 'defeat'");
       return;
     }
-  
+    if (helpScreen === null) {
+        console.error("Could not find element with id 'help'");
+        return;
+    }
+
+
     liveDisplay.setAttribute("lives", lives);
   
     // Executed once per word
