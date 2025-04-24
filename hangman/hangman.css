@@ -1,4 +1,4 @@
-/* ------------ global ------------- */
+
 *{box-sizing:border-box}
 :root{
   --bg:#040526;
@@ -14,7 +14,7 @@ html,body{
   color:var(--text);
 }
 
-/* ------------ top bar ------------- */
+
 .topbar{
   display:flex;
   align-items:center;
@@ -29,7 +29,7 @@ html,body{
 .icon.user{background:url('https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png') center/24px no-repeat}
 .icon.fav {background:url('https://img.icons8.com/ios-filled/50/ffffff/like--v1.png') center/24px no-repeat}
 
-/* hearts */
+
 .lives{
   flex:1;
   display:flex;
@@ -42,13 +42,13 @@ html,body{
   filter:drop-shadow(0 0 2px rgba(0,0,0,.6));
 }
 
-/* ------------ game panel ------------- */
+
 .game{
   text-align:center;
   padding:2rem 1rem 4rem;
 }
 
-/* neon level text */
+
 .level{
   font-size:1.25rem;
   margin:1rem 0 2rem;
@@ -56,7 +56,7 @@ html,body{
   text-shadow:0 0 4px var(--accent),0 0 8px var(--accent);
 }
 
-/* gallows + man */
+
 .gallows{
   position:relative;
   width:200px;height:220px;
@@ -78,14 +78,14 @@ html,body{
 .man .leg.left {left:143px;top:110px;width:3px;height:30px;transform:rotate(25deg);transform-origin:top;}
 .man .leg.right{left:140px;top:110px;width:3px;height:30px;transform:rotate(-25deg);transform-origin:top;}
 
-/* word display */
+
 .word{
   font-size:2rem;
   letter-spacing:.5rem;
   margin-bottom:1.5rem;
 }
 
-/* keyboard */
+
 .keyboard{
   display:flex;
   flex-wrap:wrap;

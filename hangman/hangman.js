@@ -1,14 +1,14 @@
-/********* data *********/
+
 const WORDS = [
     'javascript','browser','function','variable','object',
     'internet','hangman','algorithm','framework','element'
   ];
   const MAX_GUESSES = 6;
   
-  /********* state *********/
+
   let secretWord, guessedLetters, remaining, level = 1;
   
-  /********* DOM *********/
+
   const wordDiv     = document.getElementById('word');
   const keyboardDiv = document.getElementById('keyboard');
   const statusP     = document.getElementById('status');
@@ -16,7 +16,7 @@ const WORDS = [
   const livesDiv    = document.getElementById('lives');
   const levelHeading= document.getElementById('level-heading');
   
-  /********* build keyboard once *********/
+
   const ALPHABET = 'abcdefghijklmnopqrstuvwxyz';
   ALPHABET.split('').forEach(letter => {
     const btn = document.createElement('button');
@@ -25,7 +25,7 @@ const WORDS = [
     keyboardDiv.appendChild(btn);
   });
   
-  /********* functions *********/
+
   function startGame() {
     secretWord     = WORDS[Math.floor(Math.random()*WORDS.length)];
     guessedLetters = new Set();
@@ -61,14 +61,14 @@ const WORDS = [
   
   function updateStatus() {
     if (remaining === 0) {
-      statusP.textContent = `You lost! The word was “${secretWord}”.`;
+      statusP.textContent = `you loser “${secretWord}”.`;
       disableKeyboard();
     } else if (secretWord.split('').every(ch => guessedLetters.has(ch))) {
-      statusP.textContent = '🎉 You win!';
+      statusP.textContent = 'You a winner!';
       disableKeyboard();
-      level++;                // advance level for next round
+      level++;                
     } else {
-      statusP.textContent = `Guesses left: ${remaining}`;
+      statusP.textContent = `lifes left: ${remaining}`;
     }
   }
   
@@ -84,9 +84,9 @@ const WORDS = [
     }
   }
   
-  /********* events *********/
+  
   resetBtn.addEventListener('click', startGame);
   
-  /********* init *********/
+ 
   startGame();
   
