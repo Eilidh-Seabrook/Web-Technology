@@ -15,3 +15,8 @@ h1 {
 .three-columns {
   margin-block: 5rem;
 }
+
+.red {
+    text-transform: uppercase;
+      font-family: monospace;
+}
