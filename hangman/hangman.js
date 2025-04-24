@@ -3,11 +3,11 @@ const WORDS = [
     'javascript','browser','function','variable','object',
     'internet','hangman','algorithm','framework','element'
   ];
-  const MAX_GUESSES = 6;
+  const MAX_GUESSES = 5;
   
 
   let secretWord, guessedLetters, remaining, level = 1;
-  
+  let maxLevel = 3;
 
   const wordDiv     = document.getElementById('word');
   const keyboardDiv = document.getElementById('keyboard');
