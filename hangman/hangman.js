@@ -4,6 +4,14 @@ const WORDS = [
     'internet','hangman','algorithm','framework','element'
   ];
   const MAX_GUESSES = 5;
+  const WORDS_EASY = [
+    'deer', 'door', ];
+  const WORDS_MEDIUM = [
+    'hello','coffee','kitten', 'house'];
+  const WORDS_HARD = [
+    'liberal', 'dinosaur', 'encyclopaedia'];
+  
+  
   
 
   let secretWord, guessedLetters, remaining, level = 1;
