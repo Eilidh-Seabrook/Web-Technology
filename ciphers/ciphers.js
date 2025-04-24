@@ -3,12 +3,12 @@ const main = () => {
     let lives = 5;
   
     // Implementation of the Fisher–Yates shuffle algorithm
-    const shuffleArray = array => {
-      for (let n = array.length - 1; n > 0; n--) {
-        const i = Math.floor(Math.random() * (n + 1));
-        [array[n], array[i]] = [array[i], array[n]];
-      }
-    }
+    //const shuffleArray = array => {
+    //  for (let n = array.length - 1; n > 0; n--) {
+    //    const i = Math.floor(Math.random() * (n + 1));
+    //    [array[n], array[i]] = [array[i], array[n]];
+    //  }
+    //}
   
     // DOM Queries
     const wordDisplay = document.getElementById("word");
@@ -49,7 +49,7 @@ const main = () => {
   
     // Executed once per word
     const setWord = (index) => {
-      if (index > words.length - 1) {
+      if (index > word_list.length - 1) {
         if (startTime) {
           const endTime = (Date.now() - startTime) / 1000;
           let pb = localStorage.getItem("anagrams") ?? "";
@@ -66,7 +66,7 @@ const main = () => {
   
       wordDisplay.innerHTML = "";
   
-      let word = words[index];
+      let word = word_list[index];
   
       let scrambledWord = word.split("");
       shuffleArray(scrambledWord);
@@ -104,7 +104,7 @@ const main = () => {
     input.addEventListener("change", _event => {
       const userInput = input.value.toLowerCase();
       // console.log(userInput);
-      if (userInput == words[i]) {
+      if (userInput == word_list[i]) {
         // user guessed word, move to next word
         setWord(++i);
       } else {
