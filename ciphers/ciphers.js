@@ -3,12 +3,12 @@ const main = () => {
     let lives = 5;
   
     // Implementation of the Fisher–Yates shuffle algorithm
-    //const shuffleArray = array => {
-    //  for (let n = array.length - 1; n > 0; n--) {
-    //    const i = Math.floor(Math.random() * (n + 1));
-    //    [array[n], array[i]] = [array[i], array[n]];
-    //  }
-    //}
+    const shuffleArray = array => {
+      for (let n = array.length - 1; n > 0; n--) {
+        const i = Math.floor(Math.random() * (n + 1));
+        [array[n], array[i]] = [array[i], array[n]];
+      }
+    }
   
     // DOM Queries
     const wordDisplay = document.getElementById("word");
