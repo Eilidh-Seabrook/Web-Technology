@@ -52,12 +52,22 @@ function updateWord() {
   wordDiv.innerText = display;
 }
 /* this is the function that shows the user if they have
- sucsesfully completed the hangman level or not by showing either victory or defeat /*
+ sucsesfully completed the hangman level or not by showing either victory or defeat */
 function updateStatus() {
   if (remaining === 0) {
     defeatScreen.setAttribute("active", "")
   } else if (secretWord.split("").every((ch) => guessedLetters.has(ch))) {
-    victoryScreen.setAttribute("active", "")
+    if (startTime) {
+      const endTime = (Date.now() - startTime) / 1000;
+      let pb = localStorage.getItem("hangman") ?? "";
+      pb = Number.parseFloat(pb);
+      if (Number.isNaN(pb)) {
+        localStorage.setItem("hangman", endTime);
+      } else if (pb > endTime) {
+        localStorage.setItem("hangman", endTime)
+      }
+    }
+    victoryScreen.setAttribute("active", "");
   } else {
     statusP.textContent = `lifes left: ${remaining}`;
   }

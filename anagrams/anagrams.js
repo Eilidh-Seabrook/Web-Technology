@@ -44,7 +44,17 @@ const main = () => {
   // Executed once per word
   const setWord = (index) => {
     if (index > words.length - 1) {
-      victoryScreen.setAttribute("active", "")
+      if (startTime) {
+        const endTime = (Date.now() - startTime) / 1000;
+        let pb = localStorage.getItem("anagrams") ?? "";
+        pb = Number.parseFloat(pb);
+        if (Number.isNaN(pb)) {
+          localStorage.setItem("anagrams", endTime);
+        } else if (pb > endTime) {
+          localStorage.setItem("anagrams", endTime)
+        }
+      }
+      victoryScreen.setAttribute("active", "");
       return;
     }
 
@@ -87,7 +97,7 @@ const main = () => {
 
   input.addEventListener("change", _event => {
     const userInput = input.value.toLowerCase();
-    console.log(userInput);
+    // console.log(userInput);
     if (userInput == words[i]) {
       // user guessed word, move to next word
       setWord(++i);
