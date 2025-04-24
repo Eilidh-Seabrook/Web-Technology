@@ -1,7 +1,5 @@
 const MAX_GUESSES = 6;
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-// const WORDS_MEDIUM = ["hello", "coffee", "kitten", "house"];
-// const WORDS_HARD = ["liberal", "dinosaur", "encyclopaedia"];
 
 let secretWord, guessedLetters, remaining;
 
@@ -30,6 +28,7 @@ function startGame() {
   updateStatus();
 }
 
+/* this is the function that determines weather the user has chosen the correct letter */
 function handleGuess(letter, buttonEl) {
   if (guessedLetters.has(letter) || remaining === 0) return;
   guessedLetters.add(letter);
@@ -43,7 +42,8 @@ function handleGuess(letter, buttonEl) {
   updateWord();
   updateStatus();
 }
-
+/* this is the function to tell the user if they have guessed the
+ correct character or not by showing an underline if incorrect of if correct will show the character guessed */
 function updateWord() {
   const display = secretWord
     .split("")
@@ -51,7 +51,8 @@ function updateWord() {
     .join(" ");
   wordDiv.innerText = display;
 }
-
+/* this is the function that shows the user if they have
+ sucsesfully completed the hangman level or not by showing either victory or defeat /*
 function updateStatus() {
   if (remaining === 0) {
     defeatScreen.setAttribute("active", "")
