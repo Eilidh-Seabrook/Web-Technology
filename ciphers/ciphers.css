@@ -1,0 +1,135 @@
+#lives {
+    margin-inline: auto;
+    width: max-content;
+  }
+  
+  #lives svg path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 75px;
+  }
+  
+  #lives[lives="1"] svg:nth-child(-n + 1) path {
+    fill: #ff0000;
+    stroke-width: 0;
+  }
+  
+  #lives[lives="2"] svg:nth-child(-n + 2) path {
+    fill: #ff0000;
+    stroke-width: 0;
+  }
+  
+  #lives[lives="3"] svg:nth-child(-n + 3) path {
+    fill: #ff0000;
+    stroke-width: 0;
+  }
+  
+  #lives[lives="4"] svg:nth-child(-n + 4) path {
+    fill: #ff0000;
+    stroke-width: 0;
+  }
+  
+  #lives[lives="5"] svg:nth-child(-n + 5) path {
+    fill: #ff0000;
+    stroke-width: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+  
+  body > h1 {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+  
+  main {
+    --letter-gap: 40px;
+    --letter-size: calc(1ch + var(--letter-gap));
+  
+    font-family: monospace;
+    font-size: 80px;
+    letter-spacing: var(--letter-gap);
+    text-transform: uppercase;
+  }
+  
+  input {
+    display: inline-block;
+    height: 100px;
+    width: calc(var(--count, 5) * var(--letter-size));
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  #input-container {
+    position: relative;
+  }
+  
+  #input-container::before {
+    content: var(--underline);
+    opacity: 0.75;
+    bottom: -0.5rem;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  #word > span {
+    display: inline-block;
+    width: var(--letter-size);
+    transform-origin: center;
+    transform: rotate(calc(15deg * sin(var(--random) * 100)))
+      translateY(calc(1em * (var(--random) - 0.5)));
+  }
+  
+  #victory,
+  #defeat {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1000ms ease, transform 1000ms ease, visibility 1000ms ease;
+  }
+  
+  #victory > div,
+  #defeat > div {
+    padding-bottom: 8rem;
+  }
+  
+  #victory div div,
+  #defeat div div {
+    margin-inline: auto;
+    width: max-content;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  #victory a,
+  #defeat a {
+    font-size: 1.5rem;
+  }
+  
+  #victory[active],
+  #defeat[active] {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
