@@ -147,3 +147,9 @@ main {
   right: 1rem;
   top: 6rem;
 }
+
+.house {
+  position: absolute;
+  left: 1rem;
+  top: 6rem;
+}
