@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arcade Hangman</title>
-  <link rel="stylesheet" href="../global.css">
-</head>
-<body>
-  <!-- top navigation bar -->
-  <header class="topbar">
-    <button class="icon menu"  aria-label="menu"></button>
-    <button class="icon user"  aria-label="profile"></button>
-    <button class="icon fav"   aria-label="favourites"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arcade Hangman</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="hangman.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button class="icon menu" aria-label="menu"></button>
+      <button class="icon user" aria-label="profile"></button>
+      <button class="icon fav" aria-label="favourites"></button>
+    </header>
 
-    <!-- hearts for lives -->
-    <div id="lives" class="lives"></div>
-  </header>
+    <main class="game">
+      <h2 id="level-heading" class="level">LEVEL 1</h2>
 
-  <main class="game">
-    <h2 id="level-heading" class="level">LEVEL 1</h2>
+      <figure class="gallows">
+        <div class="pole"></div>
+        <div class="beam"></div>
+        <div class="rope"></div>
+        <div id="man" class="man">
+          <span class="head"></span>
+          <span class="body"></span>
+          <span class="arm left"></span>
+          <span class="arm right"></span>
+          <span class="leg left"></span>
+          <span class="leg right"></span>
+        </div>
+      </figure>
 
-    <!-- gallows + stick figure built with CSS -->
-    <figure class="gallows">
-      <div class="pole"></div>
-      <div class="beam"></div>
-      <div class="rope"></div>
-      <div id="man" class="man">
-        <span class="head"></span>
-        <span class="body"></span>
-        <span class="arm left"></span>
-        <span class="arm right"></span>
-        <span class="leg left"></span>
-        <span class="leg right"></span>
+      <div id="word" class="word"></div>
+
+      <section id="keyboard" class="keyboard"></section>
+
+      <p id="status" class="status"></p>
+    </main>
+    <section id="victory">
+      <div>
+        <h1>YOU WON!</h1>
+        <div>
+          <a href="../index.html" class="button">Return Home</a>
+          <a href="./hangmanlevel3.html" class="button"
+            >Advance to Next Difficulty</a
+          >
+        </div>
       </div>
-    </figure>
-
-    <!-- word display -->
-    <div id="word" class="word"></div>
-
-    <!-- on‑screen keyboard -->
-    <section id="keyboard" class="keyboard"></section>
-
-    <!-- status + reset -->
-    <p id="status" class="status"></p>
-    <button id="reset" class="reset">New Game</button>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+    </section>
+    <section id="defeat">
+      <div>
+        <h1>Better Luck Next Time!</h1>
+        <div>
+          <a href="../index.html" class="button">Return Home</a>
+          <a href="./hangmanlevel2.html" class="button">Try Again</a>
+        </div>
+      </div>
+    </section>
+    <script>
+      const WORDS = ["hello", "coffee", "kitten", "house"];
+    </script>
+    <script src="hangman.js"></script>
+  </body>
 </html>
-
