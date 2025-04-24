@@ -3,11 +3,19 @@ const WORDS = [
     'javascript','browser','function','variable','object',
     'internet','hangman','algorithm','framework','element'
   ];
-  const MAX_GUESSES = 6;
+  const MAX_GUESSES = 5;
+  const WORDS_EASY = [
+    'deer', 'door', ];
+  const WORDS_MEDIUM = [
+    'hello','coffee','kitten', 'house'];
+  const WORDS_HARD = [
+    'liberal', 'dinosaur', 'encyclopaedia'];
+  
+  
   
 
   let secretWord, guessedLetters, remaining, level = 1;
-  
+  let maxLevel = 3;
 
   const wordDiv     = document.getElementById('word');
   const keyboardDiv = document.getElementById('keyboard');
