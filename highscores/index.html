@@ -5,16 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="./highscores.css" />
     <title>High Scores</title>
     <script src="highscores.js" defer></script>
   </head>
   <body>
-    <h1>High Scores</h1>
-    <h2>Anagrams</h2>
-    <p id="anagrams"></p>
-    <h2>Ciphers</h2>
-    <p id="ciphers"></p>
-    <h2>Hangman</h2>
-    <p id="hangman"></p>
+    <header>
+      <h1 class="logo">G19-GAMES</h1>
+    </header>
+    <main>
+      <h1>High Scores</h1>
+      <div class="three-columns">
+        <div>
+          <h2>Anagrams</h2>
+          <p id="anagrams" class="highscore"></p>
+        </div>
+        <div>
+          <h2>Ciphers</h2>
+          <p id="ciphers" class="highscore"></p>
+        </div>
+        <div>
+          <h2>Hangman</h2>
+          <p id="hangman" class="highscore"></p>
+        </div>
+      </div>
+      <a href="../index.html" class="red button">Return Home</a>
+    </main>
   </body>
 </html>

@@ -1,0 +1,17 @@
+.highscore {
+  font-size: 2rem;
+}
+
+main {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 2.5rem;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.three-columns {
+  margin-block: 5rem;
+}
