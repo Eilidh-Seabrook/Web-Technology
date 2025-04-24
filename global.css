@@ -143,6 +143,7 @@ main {
 }
 
 .trophy {
-  float: right;
-  margin: 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 6rem;
 }
