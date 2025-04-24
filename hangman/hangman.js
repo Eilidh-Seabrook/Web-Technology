@@ -75,14 +75,7 @@ const WORDS = [
   function disableKeyboard() {
     [...keyboardDiv.children].forEach(b => { b.disabled = true; });
   }
-  
-  function renderHearts() {
-    livesDiv.innerHTML = '';
-    for (let i=0;i<remaining;i++){
-      const span=document.createElement('span');
-      livesDiv.appendChild(span);
-    }
-  }
+
   
   
   resetBtn.addEventListener('click', startGame);
