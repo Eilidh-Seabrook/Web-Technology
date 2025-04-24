@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" data-level="1">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangman – Level 1</title>
+  <title>Arcade Hangman</title>
   <link rel="stylesheet" href="../global.css">
-  <link rel="stylesheet" href="hangman.css">
 </head>
 <body>
+
   <header class="topbar">
-    <a class="icon menu" href="level1.html" aria-label="restart"></a>
-    <h1 class="level">LEVEL 1</h1>
+    <button class="icon menu"  aria-label="menu"></button>
+    <button class="icon user"  aria-label="profile"></button>
+    <button class="icon fav"   aria-label="favourites"></button>
+
+  
     <div id="lives" class="lives"></div>
   </header>
 
   <main class="game">
+    <h2 id="level-heading" class="level">LEVEL 1</h2>
+
+   
     <figure class="gallows">
-      <div class="pole"></div><div class="beam"></div><div class="rope"></div>
+      <div class="pole"></div>
+      <div class="beam"></div>
+      <div class="rope"></div>
       <div id="man" class="man">
-        <span class="head"></span><span class="body"></span>
-        <span class="arm left"></span><span class="arm right"></span>
-        <span class="leg left"></span><span class="leg right"></span>
+        <span class="head"></span>
+        <span class="body"></span>
+        <span class="arm left"></span>
+        <span class="arm right"></span>
+        <span class="leg left"></span>
+        <span class="leg right"></span>
       </div>
     </figure>
 
+    <!-- word display -->
     <div id="word" class="word"></div>
+
+    <!-- on‑screen keyboard -->
     <section id="keyboard" class="keyboard"></section>
+
+    <!-- status + reset -->
     <p id="status" class="status"></p>
-    <button id="reset" class="reset">New Game</button>
-    <p><a href="level2.html">→ Go to Level 2</a></p>
+    <button id="reset" class="reset">New Game</button>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
