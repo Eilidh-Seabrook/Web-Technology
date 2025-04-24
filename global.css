@@ -78,3 +78,7 @@ main {
 .button:hover {
   background-color: grey;
 } 
+
+.logo {
+  text-align: center;
+} 
