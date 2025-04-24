@@ -49,7 +49,7 @@ const main = () => {
   
     // Executed once per word
     const setWord = (index) => {
-      if (index > word_list.length - 1) {
+      if (index > words.length - 1) {
         if (startTime) {
           const endTime = (Date.now() - startTime) / 1000;
           let pb = localStorage.getItem("anagrams") ?? "";
@@ -66,7 +66,7 @@ const main = () => {
   
       wordDisplay.innerHTML = "";
   
-      let word = word_list[index];
+      let word = words[index];
   
       let scrambledWord = word.split("");
       shuffleArray(scrambledWord);
@@ -104,7 +104,7 @@ const main = () => {
     input.addEventListener("change", _event => {
       const userInput = input.value.toLowerCase();
       // console.log(userInput);
-      if (userInput == word_list[i]) {
+      if (userInput == words[i]) {
         // user guessed word, move to next word
         setWord(++i);
       } else {
