@@ -39,7 +39,7 @@ const main = () => {
       console.error("Could not find element with id 'defeat'");
       return;
     }
-  
+
     liveDisplay.setAttribute("lives", lives);
   
     // Executed once per word
