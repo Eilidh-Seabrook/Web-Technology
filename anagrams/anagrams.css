@@ -34,13 +34,10 @@
   stroke-width: 0;
 }
 
-h1 {
+h2 {
   text-align: center;
   text-transform: uppercase;
   font-family: monospace;
-}
-
-body > h1, h2 {
   font-size: 3rem;
   margin-top: 0;
 }
