@@ -39,12 +39,7 @@ const main = () => {
       console.error("Could not find element with id 'defeat'");
       return;
     }
-    if (helpScreen === null) {
-        console.error("Could not find element with id 'help'");
-        return;
-    }
-
-
+  
     liveDisplay.setAttribute("lives", lives);
   
     // Executed once per word
