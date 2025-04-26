@@ -100,7 +100,7 @@ const game_running = (index) => {
         defeatScreen.setAttribute("active", "")
       }
     }
-
+  }
 }
 
 function start_game(){
