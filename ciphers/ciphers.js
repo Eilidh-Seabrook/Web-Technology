@@ -3,12 +3,13 @@ const main = () => {
     let lives = 5;
   
     // Implementation of the Fisher–Yates shuffle algorithm
+    /*
     const shuffleArray = array => {
       for (let n = array.length - 1; n > 0; n--) {
         const i = Math.floor(Math.random() * (n + 1));
         [array[n], array[i]] = [array[i], array[n]];
       }
-    }
+    }*/
   
     // DOM Queries
     const wordDisplay = document.getElementById("word");
@@ -16,30 +17,7 @@ const main = () => {
     const liveDisplay = document.getElementById("lives");
     const victoryScreen = document.getElementById("victory");
     const defeatScreen = document.getElementById("defeat");
-    const helpScreen = document.getElementById("help");
   
-    // Check for errors
-    if (wordDisplay === null) {
-      console.error("Could not find element with id 'word'");
-      return;
-    }
-    if (input === null) {
-      console.error("Could not find element with id 'input'");
-      return;
-    }
-    if (liveDisplay === null) {
-      console.error("Could not find element with id 'lives'");
-      return;
-    }
-    if (victoryScreen === null) {
-      console.error("Could not find element with id 'victory'");
-      return;
-    }
-    if (defeatScreen === null) {
-      console.error("Could not find element with id 'defeat'");
-      return;
-    }
-
     liveDisplay.setAttribute("lives", lives);
   
     // Executed once per word
@@ -63,9 +41,10 @@ const main = () => {
   
       let word = words[index];
   
-      let scrambledWord = word.split("");
-      shuffleArray(scrambledWord);
+      /*let scrambledWord = word.split("");
+      shuffleArray(scrambledWord);*/
   
+      /*
       for (let i = 0; i < scrambledWord.length; i++) {
         const letter = scrambledWord[i];
         let child = document.createElement("span");
@@ -73,7 +52,7 @@ const main = () => {
         child.style.setProperty("--random", biasedRandom)
         child.innerText = letter;
         wordDisplay.appendChild(child);
-      }
+      }*/
   
       input.value = "";
   
