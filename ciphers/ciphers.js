@@ -17,35 +17,38 @@ const main = () => {
     const liveDisplay = document.getElementById("lives");
     const victoryScreen = document.getElementById("victory");
     const defeatScreen = document.getElementById("defeat");
-  
     liveDisplay.setAttribute("lives", lives);
 
-  /* in order to implement caesar cipher, must introduce non-native modulus functionality */
-  /* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
-  function mod(n, p){
-    if ( n < 0 )
-        n = p - Math.abs(n) % p;
-
-    return n % p;
-  }
+  /* inital declarations */
 
   /* select random item from word list and key list */
   let word_index  = Math.floor(Math.random() * words.length);
   let random_word = words[word_index];
 
   let key_index = Math.floor(Math.random() * keys.length);
-  let random_key = keys[key_index]
+  let random_key = keys[key_index];
 
+  /* i have no idea how booleans work in js so i al faking it */
+  let word_found = 0; 
 
+  console.log(random_word);
+  console.log(random_key);
 
-  /* encryption algo */
+  /* in order to implement caesar cipher, must introduce non-native modulus functionality */
+  /* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
+  function mod(n, p){
+    if ( n < 0 )
+        n = p - Math.abs(n) % p;
+    return n % p;
+  }
+
+  /* encryption algorithm */
   function encrypt(random_word, random_key){
     var coded_word = "";
-
     for(var i = 0; i < random_word.length; i++){
         var code = random_word.charCodeAt(i);
 
-        // Encrypt only letters in 'A' ... 'Z' interval
+        /* shifts letters forwards or backwards along the alphabet by the given key */
         if (code >= 65 && code <= 65 + 26 - 1){
             code -= 65;
             code = mod(code + random_key, 26);
@@ -57,12 +60,66 @@ const main = () => {
   }
 
   const set_word {
-    let coded_word = encrypt(random_word, random_key);
+    let coded_word = encrypt();
 
     wordDisplay.innerHTML = "";
+
+    for (let i = 0; i < coded_word.length; i++){
+      const letter = coded_word[i];
+      let child = document.createElement("span");
+      child.innerText = letter;
+      wordDisplay.appendChild(child);
+    }
   }
 
+  const setWord = (index) => {
+    if (word_found = 1){
+      if (startTime) {
+        const endTime = (Date.now() - startTime) / 1000;
+        let pb = localStorage.getItem("ciphers") ?? "";
+        pb = Number.parseFloat(pb);
+        if (Number.isNaN(pb)) {
+          localStorage.setItem("ciphers", endTime);
+        } else if (pb > endTime) {
+          localStorage.setItem("ciphers", endTime)
+        }
+      }
+      victoryScreen.setAttribute("active", "");
+      return;
+    }
 
+    wordDisplay.innerHTML = "";
+
+    let word = words[index];
+
+    let scrambledWord = word.split("");
+    shuffleArray(scrambledWord);
+
+    for (let i = 0; i < scrambledWord.length; i++) {
+      const letter = scrambledWord[i];
+      let child = document.createElement("span");
+      let biasedRandom = 0.5 * (Math.random() + i % 2);
+      child.style.setProperty("--random", biasedRandom)
+      child.innerText = letter;
+      wordDisplay.appendChild(child);
+    }
+
+    input.value = "";
+
+    if (input.minLength == word.length) {
+      return;
+    }
+
+    if (input.minLength < word.length) {
+      input.maxLength = word.length;
+      input.minLength = word.length;
+    } else {
+      input.minLength = word.length;
+      input.maxLength = word.length;
+    }
+    input.style.setProperty("--count", word.length);
+    input.parentElement?.style.setProperty("--underline", "'".padEnd(word.length + 1, "_").concat("'"));
+  }
 
 if (coded_word === random_word){
   victoryScreen.setAttribute("active", "");
@@ -83,6 +140,16 @@ input.addEventListener("change", _event => {
   }
 })
 
+
+
+
+
+function start_game(){
+
+}
+
+
+start_game();
 
 /* everything below is copied, yoink from it as needed */
 
