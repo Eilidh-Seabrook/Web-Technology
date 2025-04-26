@@ -54,7 +54,6 @@ function set_word(coded_word){
     child.innerText = letter;
     wordDisplay.appendChild(child);
   }
-  return;
 }
 
 const game_running = () => {
@@ -86,12 +85,12 @@ const game_running = () => {
     input.maxLength = random_word.length;
   }
   input.style.setProperty("--count", random_word.length);
-  input.parentElement?.style.setProperty("--underline", "'".padEnd(word.length + 1, "_").concat("'"));
+  input.parentElement?.style.setProperty("--underline", "'".padEnd(random_word.length + 1, "_").concat("'"));
 
 }
 
 input.addEventListener("change", _event => {
-  const userInput = input.value.toLowerCase();
+  const userInput = input.value.toUpperCase();
   // console.log(userInput);
   if (userInput == random_word){
     word_found = 1;
@@ -108,8 +107,6 @@ input.addEventListener("change", _event => {
 function start_game(){
   const coded_word = encrypt_word(random_word, random_key);
   set_word(coded_word);
-
-  let i = 0
   game_running();
 }
 
