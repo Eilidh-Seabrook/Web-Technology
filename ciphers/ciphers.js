@@ -20,6 +20,54 @@ const main = () => {
   
     liveDisplay.setAttribute("lives", lives);
   
+
+
+
+  /* in order to implement caesar cipher, must introduce non-native modulus functionality */
+  /* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
+  function mod(n, p){
+    if ( n < 0 )
+        n = p - Math.abs(n) % p;
+
+    return n % p;
+  }
+
+  /* select random item from word list and key list */
+  let word_index  = Math.floor(Math.random() * words.length);
+  let random_word = words[word_index];
+
+  let key_index = Math.floor(Math.random() * keys.length);
+  let random_key = keys[key_index]
+
+
+
+  /* encryption algo */
+  function encrypt(random_word, random_key){
+    var encMsg = "";
+
+    for(var i = 0; i < random_word.length; i++)
+    {
+        var code = random_word.charCodeAt(i);
+
+        // Encrypt only letters in 'A' ... 'Z' interval
+        if (code >= 65 && code <= 65 + 26 - 1)
+        {
+            code -= 65;
+            code = mod(code + random_key, 26);
+            code += 65;
+        }
+
+        encMsg += String.fromCharCode(code);
+    }
+
+    return encMsg;
+}
+
+
+/* everything below is copied, yoink from it as needed */
+
+/*
+
     // Executed once per word
     const setWord = (index) => {
       if (index > words.length - 1) {
@@ -41,10 +89,9 @@ const main = () => {
   
       let word = words[index];
   
-      /*let scrambledWord = word.split("");
-      shuffleArray(scrambledWord);*/
+      let scrambledWord = word.split("");
+      shuffleArray(scrambledWord);
   
-      /*
       for (let i = 0; i < scrambledWord.length; i++) {
         const letter = scrambledWord[i];
         let child = document.createElement("span");
@@ -52,7 +99,7 @@ const main = () => {
         child.style.setProperty("--random", biasedRandom)
         child.innerText = letter;
         wordDisplay.appendChild(child);
-      }*/
+      }
   
       input.value = "";
   
@@ -90,5 +137,6 @@ const main = () => {
       }
     })
   }
+  */
   main();
   
