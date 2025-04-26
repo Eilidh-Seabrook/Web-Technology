@@ -19,9 +19,6 @@ const main = () => {
     const defeatScreen = document.getElementById("defeat");
   
     liveDisplay.setAttribute("lives", lives);
-  
-
-
 
   /* in order to implement caesar cipher, must introduce non-native modulus functionality */
   /* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
@@ -43,25 +40,48 @@ const main = () => {
 
   /* encryption algo */
   function encrypt(random_word, random_key){
-    var encMsg = "";
+    var coded_word = "";
 
-    for(var i = 0; i < random_word.length; i++)
-    {
+    for(var i = 0; i < random_word.length; i++){
         var code = random_word.charCodeAt(i);
 
         // Encrypt only letters in 'A' ... 'Z' interval
-        if (code >= 65 && code <= 65 + 26 - 1)
-        {
+        if (code >= 65 && code <= 65 + 26 - 1){
             code -= 65;
             code = mod(code + random_key, 26);
             code += 65;
         }
-
-        encMsg += String.fromCharCode(code);
+        coded_word += String.fromCharCode(code);
     }
+    return coded_word;
+  }
 
-    return encMsg;
+  const set_word {
+    let coded_word = encrypt(random_word, random_key);
+
+    wordDisplay.innerHTML = "";
+  }
+
+
+
+if (coded_word === random_word){
+  victoryScreen.setAttribute("active", "");
+  return;
 }
+
+input.addEventListener("change", _event => {
+  const userInput = input.value.toLowerCase();
+  // console.log(userInput);
+  if (userInput == random_word){
+  victoryScreen.setAttribute("active", "");
+  } else{
+    // user guessed wrong, subtract 1 from lives
+    liveDisplay.setAttribute("lives", --lives);
+    if (lives <= 0) {
+      defeatScreen.setAttribute("active", "")
+    }
+  }
+})
 
 
 /* everything below is copied, yoink from it as needed */
@@ -139,4 +159,4 @@ const main = () => {
   }
   */
   main();
-  
+}
