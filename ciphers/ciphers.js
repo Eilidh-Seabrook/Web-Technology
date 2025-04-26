@@ -1,4 +1,6 @@
 // DOM Queries
+let lives = 5;
+
 const wordDisplay = document.getElementById("word");
 const input = document.getElementById("input");
 const liveDisplay = document.getElementById("lives");
@@ -9,10 +11,9 @@ liveDisplay.setAttribute("lives", lives);
 
 /* select random item from word list and key list */
 let word_index  = Math.floor(Math.random() * words.length);
-let random_word = words[word_index];
+let random_word = words[word_index].toUpperCase();
 let key_index = Math.floor(Math.random() * keys.length);
 let random_key = keys[key_index];
-let lives = 5;
 
 /* i have no idea how booleans work in js so i am faking it */
 let word_found = 0; 
@@ -56,8 +57,8 @@ function set_word(coded_word){
   return;
 }
 
-const game_running = (index) => {
-  if (word_found = 1){
+const game_running = () => {
+  if (word_found === 1){
     if (startTime) {
       const endTime = (Date.now() - startTime) / 1000;
       let pb = localStorage.getItem("ciphers") ?? "";
@@ -73,42 +74,43 @@ const game_running = (index) => {
   }
 
   input.value = "";
-  if (input.minLength == word.length) {
+  if (input.minLength == random_word.length) {
     return;
   }
 
-  if (input.minLength < word.length) {
-    input.maxLength = word.length;
-    input.minLength = word.length;
+  if (input.minLength < random_word.length) {
+    input.maxLength = random_word.length;
+    input.minLength = random_word.length;
   } else {
-    input.minLength = word.length;
-    input.maxLength = word.length;
+    input.minLength = random_word.length;
+    input.maxLength = random_word.length;
   }
-  input.style.setProperty("--count", word.length);
+  input.style.setProperty("--count", random_word.length);
   input.parentElement?.style.setProperty("--underline", "'".padEnd(word.length + 1, "_").concat("'"));
 
-  input.addEventListener("change", _event => {
-    const userInput = input.value.toLowerCase();
-    // console.log(userInput);
-    if (userInput == random_word){
-      word_found = 1;
-      victoryScreen.setAttribute("active", "");
-    } else{
-      // user guessed wrong, subtract 1 from lives
-      liveDisplay.setAttribute("lives", --lives);
-      if (lives <= 0) {
-        defeatScreen.setAttribute("active", "")
-      }
-    }
-  }
 }
 
+input.addEventListener("change", _event => {
+  const userInput = input.value.toLowerCase();
+  // console.log(userInput);
+  if (userInput == random_word){
+    word_found = 1;
+    victoryScreen.setAttribute("active", "");
+  } else{
+    // user guessed wrong, subtract 1 from lives
+    liveDisplay.setAttribute("lives", --lives);
+    if (lives <= 0) {
+      defeatScreen.setAttribute("active", "")
+    }
+  }
+});
+
 function start_game(){
-  encrypt_word();
+  const coded_word = encrypt_word(random_word, random_key);
   set_word(coded_word);
 
   let i = 0
-  game_running(i);
+  game_running();
 }
 
 
