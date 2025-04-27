@@ -10,16 +10,17 @@ liveDisplay.setAttribute("lives", lives);
 /* inital declarations */
 
 /* select random item from word list and key list */
-let word_index = Math.floor(Math.random() * words.length);
-let random_word = words[word_index].toUpperCase();
-let key_index = Math.floor(Math.random() * keys.length);
-let random_key = keys[key_index];
+let wordIndex = Math.floor(Math.random() * words.length);
+let randomWord = words[wordIndex].toUpperCase();
+let keyIndex = Math.floor(Math.random() * keys.length);
+let randomKey = keys[keyIndex];
 
-/* i have no idea how booleans work in js so i am faking it */
-let word_found = 0;
+let wordFound = 0;
 
-console.log(random_word);
-console.log(random_key);
+/*
+console.log(randomWord);
+console.log(randomKey);
+*/
 
 /* in order to implement caesar cipher, must introduce non-native modulus functionality */
 /* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
@@ -31,34 +32,34 @@ function mod(n, p) {
 }
 
 /* encryption algorithm */
-function encrypt_word(random_word, random_key) {
-  var coded_word = "";
-  for (var i = 0; i < random_word.length; i++) {
-    var code = random_word.charCodeAt(i);
+function encryptWord(randomWord, randomKey) {
+  var codedWord = "";
+  for (var i = 0; i < randomWord.length; i++) {
+    var code = randomWord.charCodeAt(i);
     /* shifts letters forwards or backwards along the alphabet by the given key */
     if (code >= 65 && code <= 65 + 26 - 1) {
       code -= 65;
-      code = mod(code + random_key, 26);
+      code = mod(code + randomKey, 26);
       code += 65;
     }
-    coded_word += String.fromCharCode(code);
+    codedWord += String.fromCharCode(code);
   }
-  return coded_word;
+  return codedWord;
 }
 
-function set_word(coded_word) {
+function setWord(codedWord) {
   wordDisplay.innerHTML = "";
   /* render the scrambled word */
-  for (let i = 0; i < coded_word.length; i++) {
-    const letter = coded_word[i];
+  for (let i = 0; i < codedWord.length; i++) {
+    const letter = codedWord[i];
     let child = document.createElement("span");
     child.innerText = letter;
     wordDisplay.appendChild(child);
   }
 }
 
-const game_running = () => {
-  if (word_found === 1) {
+const gameRunning = () => {
+  if (wordFound === 1) {
     if (startTime) {
       const endTime = (Date.now() - startTime) / 1000;
       let pb = localStorage.getItem("ciphers") ?? "";
@@ -74,27 +75,27 @@ const game_running = () => {
   }
 
   input.value = "";
-  if (input.minLength == random_word.length) {
+  if (input.minLength == randomWord.length) {
     return;
   }
 
-  if (input.minLength < random_word.length) {
-    input.maxLength = random_word.length;
-    input.minLength = random_word.length;
+  if (input.minLength < randomWord.length) {
+    input.maxLength = randomWord.length;
+    input.minLength = randomWord.length;
   } else {
-    input.minLength = random_word.length;
-    input.maxLength = random_word.length;
+    input.minLength = randomWord.length;
+    input.maxLength = randomWord.length;
   }
-  input.style.setProperty("--count", random_word.length);
-  input.parentElement?.style.setProperty("--underline", "'".padEnd(random_word.length + 1, "_").concat("'"));
+  input.style.setProperty("--count", randomWord.length);
+  input.parentElement?.style.setProperty("--underline", "'".padEnd(randomWord.length + 1, "_").concat("'"));
 
 }
 
 input.addEventListener("change", _event => {
   const userInput = input.value.toUpperCase();
   // console.log(userInput);
-  if (userInput == random_word) {
-    word_found = 1;
+  if (userInput == randomWord) {
+    wordFound = 1;
     victoryScreen.setAttribute("active", "");
   } else {
     // user guessed wrong, subtract 1 from lives
@@ -105,11 +106,11 @@ input.addEventListener("change", _event => {
   }
 });
 
-function start_game() {
-  const coded_word = encrypt_word(random_word, random_key);
-  set_word(coded_word);
-  game_running();
+function startGame() {
+  const codedWord = encryptWord(randomWord, randomKey);
+  setWord(codedWord);
+  gameRunning();
 }
 
 
-start_game();
+startGame();
