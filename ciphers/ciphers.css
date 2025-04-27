@@ -137,3 +137,15 @@ input:focus {
   pointer-events: auto;
   visibility: visible;
 }
+
+#how-to {
+  font-size: 1rem;
+  text-align: center;
+  gap:10px;
+  word-spacing: normal;
+}
+
+#links {
+  padding-bottom: 10%;
+  padding-top:10%
+}
