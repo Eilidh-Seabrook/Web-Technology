@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../global.css"/>
         <link rel="stylesheet" href="ciphers.css"/>
         <script>
-            const words = ["house","door","lock","floor","sofa","chair"];
+            const words = ["house","doors","lamps","floor","blind","chair"];
             const keys = [1,2];
             const startTime = false;
         </script>
@@ -21,6 +21,7 @@
     <body>
         <header>
             <h1 class="logo">G-19 Games</h1>
+            <nav>
             <a href="../index.html" class="index">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +64,7 @@
                         d="M298-120v-60h152v-148q-54-11-96-46.5T296-463q-74-8-125-60t-51-125v-44q0-25 17.5-42.5T180-752h104v-88h392v88h104q25 0 42.5 17.5T840-692v44q0 73-51 125t-125 60q-16 53-58 88.5T510-328v148h152v60H298Zm-14-406v-166H180v44q0 45 29.5 78.5T284-526Zm392 0q45-10 74.5-43.5T780-648v-44H676v166Z"/>
                 </svg>
             </a>
-           
+            </nav>
         </header>
         <h1>Level 1 - Easy</h1>
         <div id="lives">
@@ -124,17 +125,21 @@
             </svg>
         </div>
         <main>
+          <div>
             <p id="word"></p>
+          </div>
+          <div id="instructions">
             <p>Enter Decoded Word</p>
-            <div id="input-container">
-                <input
-                    id="input"
-                    type="text"
-                    pattern="[a-zA-Z]{6}"
-                    minlength="0"
-                    maxlength="0"
-                    required
-                />
+          </div>
+          <div id="input-container">
+            <input
+              id="input"
+              type="text"
+              pattern="[a-zA-Z]{5}"
+              minlength="0"
+              maxlength="5"
+              required
+              />
             </div>
         </main>
         <section id="victory">
@@ -148,7 +153,7 @@
         </section>
         <section id="defeat">
             <div>
-                <h1> Defeat...</h1>
+                <h1>Defeat...</h1>
                 <div>
                     <a href="./easy.html" class="button">Try Again?</a>
                     <a href="../index.html" class="button">Back To Home</a>
@@ -157,20 +162,3 @@
         </section>
     </body>
 </html>
-
-
-
-<!--
-<svg width="80px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_429_11043)">
-    <circle cx="12" cy="11.9999" r="9" stroke="#292929" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="12" y="16" width="0.01" height="0.01" stroke="#292929" stroke-width="3.75" stroke-linejoin="round"/>
-    <path d="M10.5858 7.58572C10.9754 7.1961 11.4858 7.00083 11.9965 6.99994C12.5095 6.99904 13.0228 7.1943 13.4142 7.58572C13.8047 7.97625 14 8.48809 14 8.99994C14 9.51178 13.8047 10.0236 13.4142 10.4141C13.0228 10.8056 12.5095 11.0008 11.9965 10.9999L12 11.9999" stroke="#292929" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <defs>
-    <clipPath id="clip0_429_11043">
-    <rect width="24" height="24" fill="white"/>
-    </clipPath>
-    </defs>
-    </svg>
-  -->

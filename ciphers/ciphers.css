@@ -48,13 +48,18 @@
   main {
     --letter-gap: 40px;
     --letter-size: calc(1ch + var(--letter-gap));
-  
     font-family: monospace;
     font-size: 80px;
     letter-spacing: var(--letter-gap);
     text-transform: uppercase;
+    text-align: center;
+    gap:30px
   }
-  
+
+  #instruction-container p {
+    letter-spacing: 0.1em; /* inherited letter spacing caused it to span whole screen*/
+  }
+
   input {
     display: inline-block;
     height: 100px;
