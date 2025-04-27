@@ -149,3 +149,7 @@ input:focus {
   padding-bottom: 10%;
   padding-top:10%
 }
+
+#how-to-title {
+  font-size: 3rem;
+}
