@@ -38,6 +38,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: monospace;
+  font-size:1.5vw
 }
 
 body > h1 {
@@ -151,5 +152,5 @@ input:focus {
 }
 
 #how-to-title {
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
