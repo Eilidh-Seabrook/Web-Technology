@@ -93,9 +93,11 @@ input:focus {
 #word > span {
   display: inline-block;
   width: var(--letter-size);
+  /*
   transform-origin: center;
   transform: rotate(calc(15deg * sin(var(--random) * 100)))
     translateY(calc(1em * (var(--random) - 0.5)));
+  */
 }
 
 #victory,

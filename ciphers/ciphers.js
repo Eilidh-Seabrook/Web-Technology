@@ -17,13 +17,9 @@ let randomKey = keys[keyIndex];
 
 let wordFound = 0;
 
-/*
-console.log(randomWord);
-console.log(randomKey);
-*/
 
 /* in order to implement caesar cipher, must introduce non-native modulus functionality */
-/* taken from https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
+/* modulus code adapted from user codeguppy at https://stackoverflow.com/questions/44232645/caesar-cipher-in-javascript */
 function mod(n, p) {
   if (n < 0) {
     n = p - Math.abs(n) % p;
@@ -31,13 +27,30 @@ function mod(n, p) {
   return n % p;
 }
 
-/* encryption algorithm */
+/* encryption algorithm, modified from above source */
 function encryptWord(randomWord, randomKey) {
+  let codedWord = "";
+  for (const char of randomWord){
+    let codeLetter = char.charCodeAt(0);
+
+    codeLetter -= 65;
+    codeLetter = mod(codeLetter + randomKey, 26);
+    codeLetter += 65;
+    codedWord += String.fromCharCode(codeLetter);
+  }
+  return codedWord;
+}
+  
+  
+  
+  
+  
+  /*
   var codedWord = "";
   for (var i = 0; i < randomWord.length; i++) {
     var code = randomWord.charCodeAt(i);
     /* shifts letters forwards or backwards along the alphabet by the given key */
-    if (code >= 65 && code <= 65 + 26 - 1) {
+    /*if (code >= 65 && code <= 65 + 26 - 1) {
       code -= 65;
       code = mod(code + randomKey, 26);
       code += 65;
@@ -45,7 +58,7 @@ function encryptWord(randomWord, randomKey) {
     codedWord += String.fromCharCode(code);
   }
   return codedWord;
-}
+}*/
 
 function setWord(codedWord) {
   wordDisplay.innerHTML = "";
