@@ -147,10 +147,7 @@ input:focus {
 }
 
 #links {
-  padding-bottom: 10%;
-  padding-top:10%;
-  padding-left:30%;
-  padding-right:30%;
+ font-size: 3rem;
 }
 
 #how-to-title {
