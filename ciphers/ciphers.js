@@ -32,7 +32,6 @@ function encryptWord(randomWord, randomKey) {
   let codedWord = "";
   for (const char of randomWord){
     let codeLetter = char.charCodeAt(0);
-
     codeLetter -= 65;
     codeLetter = mod(codeLetter + randomKey, 26);
     codeLetter += 65;
@@ -41,24 +40,6 @@ function encryptWord(randomWord, randomKey) {
   return codedWord;
 }
   
-  
-  
-  
-  
-  /*
-  var codedWord = "";
-  for (var i = 0; i < randomWord.length; i++) {
-    var code = randomWord.charCodeAt(i);
-    /* shifts letters forwards or backwards along the alphabet by the given key */
-    /*if (code >= 65 && code <= 65 + 26 - 1) {
-      code -= 65;
-      code = mod(code + randomKey, 26);
-      code += 65;
-    }
-    codedWord += String.fromCharCode(code);
-  }
-  return codedWord;
-}*/
 
 function setWord(codedWord) {
   wordDisplay.innerHTML = "";
@@ -106,12 +87,10 @@ const gameRunning = () => {
 
 input.addEventListener("change", _event => {
   const userInput = input.value.toUpperCase();
-  // console.log(userInput);
   if (userInput == randomWord) {
     wordFound = 1;
     victoryScreen.setAttribute("active", "");
   } else {
-    // user guessed wrong, subtract 1 from lives
     liveDisplay.setAttribute("lives", --lives);
     if (lives <= 0) {
       defeatScreen.setAttribute("active", "")
